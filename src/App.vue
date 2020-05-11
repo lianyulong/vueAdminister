@@ -1,7 +1,5 @@
 <template>
-	<div id="app">
-		<router-view />
-	</div>
+	<div id="app"><router-view /></div>
 </template>
 
 <style>
@@ -43,19 +41,17 @@
 }
 .el-table__body-wrapper {
 	flex: 1;
-	overflow-y: auto;
+	overflow-y: auto !important;
 }
 .el-table__body-wrapper::-webkit-scrollbar {
-	width: 10px; /*竖向滚动条的宽度*/
-	height: 10px; /*横向滚动条的高度*/
+	width: 10px;
+	height: 10px;
 }
 .el-table__body-wrapper::-webkit-scrollbar-thumb {
-	/*滚动条里面的小方块*/
 	background: #666666;
 	border-radius: 5px;
 }
 .el-table__body-wrapper::-webkit-scrollbar-track {
-	/*滚动条轨道的样式*/
 	background: #ccc;
 	border-radius: 5px;
 }
@@ -65,8 +61,7 @@
 	box-sizing: border-box;
 }
 .seek-topic .el-input__inner,
-.seek-idea .el-input__inner
-{
+.seek-idea .el-input__inner {
 	border-top-right-radius: 0px !important;
 	border-bottom-right-radius: 0px !important;
 }
@@ -86,5 +81,8 @@
 	outline: none;
 	border-left: none;
 	cursor: pointer;
+}
+.el-table .cell {
+	text-overflow: clip;
 }
 </style>

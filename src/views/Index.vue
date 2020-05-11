@@ -12,7 +12,8 @@
 				active-text-color="#fff"
 				:default-active="active"
 			>
-				<h3 class="title">大佬解疑</h3>
+				<h3 v-show="!isCollapse" class="title">大佬解疑</h3>
+				<img v-show="isCollapse" src="../assets/logo.png" style="display: block;margin: 10px auto;width: 60px;height: 60px;" alt="" />
 				<el-submenu index="1">
 					<template slot="title">
 						<i class="el-icon-location"></i>
@@ -54,11 +55,11 @@
 			<el-header style="font-size: 12px;background-color:#001529; display: flex;justify-content: space-between;">
 				<div class="collapse-btn"><el-button type="text" @click="alterCollapse" style="color: #FFFFFF;" icon="el-icon-s-unfold"></el-button></div>
 				<div style="color: #FFFFFF;">
-					<el-dropdown>
+					<el-dropdown @command="handleCommand">
 						<i class="el-icon-setting" style="margin-right: 10px;color: #FFFFFF;"></i>
 						<el-dropdown-menu slot="dropdown">
 							<el-dropdown-item>修改密码</el-dropdown-item>
-							<el-dropdown-item>退出</el-dropdown-item>
+							<el-dropdown-item command="a">退出</el-dropdown-item>
 						</el-dropdown-menu>
 					</el-dropdown>
 					<span>{{ username }}</span>
@@ -85,6 +86,12 @@ export default {
 		handleClose(key, keyPath) {},
 		alterCollapse() {
 			this.isCollapse = !this.isCollapse;
+		},
+		handleCommand(command) {
+			localStorage.removeItem('token');
+			this.$router.push({
+				path: `/login`
+			});
 		}
 	},
 	watch: {

@@ -9,9 +9,9 @@
 		<el-table :data="tableData" border style="width: 100%;flex: 1;display: flex;flex-direction: column;overflow: hidden;">
 			<el-table-column type="index" label="#" width="180"></el-table-column>
 			<el-table-column prop="name" label="学科名称" width="180"></el-table-column>
-			<el-table-column prop="img" label="图片" width="180">
+			<el-table-column prop="img" label="图片" style="overflow: hidden;" width="180">
 				<template slot-scope="scope">
-					<img :src="scope.row.img"style="width: auto; height: 92px;max-width: 180px;" />
+					<img :src="scope.row.img" style="width: auto; height: 92px;max-width: 180px;" />
 				</template>
 			</el-table-column>
 			<el-table-column label="操作">
@@ -44,5 +44,3 @@ export default {
 	}
 };
 </script>
-
-<style scoped="scoped"></style>
